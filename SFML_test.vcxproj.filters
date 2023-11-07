@@ -51,4 +51,7 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Object Include="x64\Debug\main.obj" />
+  </ItemGroup>
 </Project>
