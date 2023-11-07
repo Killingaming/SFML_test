@@ -3,6 +3,7 @@
 #include "Brick.h"
 #include "Ball.h"
 #include "Cannon.h"
+#include "Slidebar.h"
 
 
 int main(int argc, char** argv)
@@ -20,6 +21,8 @@ int main(int argc, char** argv)
     Ball oBall;
 
     Brick obrick;
+
+    Slidebar oSlidebar;
 
     std::vector<Brick*> oBrick;
 
@@ -42,7 +45,7 @@ int main(int argc, char** argv)
         oWindow.clear();
 
         //oWindow.draw(oCircle);
-        oWindow.draw(oRectangle);
+        oWindow.draw(oSlidebar);
 
         oWindow.display();
 
