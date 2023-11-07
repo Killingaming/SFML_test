@@ -1,6 +1,4 @@
 #pragma once
-#ifndef SFML_GAMEENGINE_GAMEOBJECT_H
-#define SFML_GAMEENGINE_GAMEOBJECT_H
 
 #include <SFML/Graphics.hpp>
 
@@ -20,5 +18,3 @@ public:
     void setColor(sf::Color _color);
     sf::Color returnColor();
 };
-
-#endif

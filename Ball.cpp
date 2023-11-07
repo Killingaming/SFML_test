@@ -8,8 +8,8 @@ Ball::Ball() {
     //Et de couleur verte
     oCircle.setFillColor(sf::Color::Green);
 }
-
+/*
 void Ball::Move(float fDeltaTime) {
     m_fX += m_oDirection.x * fDeltaTime * 10.f;
     m_fY += m_oDirection.y * fDeltaTime * 10.f;
-}
+}*/

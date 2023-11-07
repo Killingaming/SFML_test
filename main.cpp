@@ -11,9 +11,9 @@ int main(int argc, char** argv)
     sf::RenderWindow oWindow(sf::VideoMode(640, 480), "SFML");
 
     //Création d'un rectangle de taille 50, 50
-    sf::RectangleShape oRectangle(sf::Vector2f(50.f, 50.f));
+    sf::RectangleShape oRectangle(sf::Vector2f(640.f, 5.f));
     //A la position 100, 100
-    oRectangle.setPosition(100.f, 100.f);
+    oRectangle.setPosition(0.f, 475.f);
     //Et de couleur rouge
     oRectangle.setFillColor(sf::Color::Red);
 
@@ -24,8 +24,8 @@ int main(int argc, char** argv)
     std::vector<Brick*> oBrick;
 
     //GameLoop
-    sf::Clock oClock;
-    float fDeltaTime;
+    //sf::Clock oClock;
+    //float fDeltaTime;
     while (oWindow.isOpen())
     {
         //EVENT
@@ -37,7 +37,7 @@ int main(int argc, char** argv)
         }
 
         //UPDATE
-        oBall.Move(fDeltaTime);
+        //oBall.Move(fDeltaTime);
         //DRAW
         oWindow.clear();
 
@@ -46,7 +46,7 @@ int main(int argc, char** argv)
 
         oWindow.display();
 
-        fDeltaTime = oClock.restart().asSeconds();
+        //fDeltaTime = oClock.restart().asSeconds();
     }
 
     return 0;
