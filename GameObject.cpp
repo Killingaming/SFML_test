@@ -24,3 +24,4 @@ sf::Color GameObject::returnColor() {
     return color;
 }
 
+
