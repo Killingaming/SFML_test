@@ -1,5 +1,9 @@
 #include <SFML/Graphics.hpp>
 #include "GameObject.cpp"
+#include "Brick.h"
+#include "Ball.h"
+#include "Cannon.h"
+
 
 int main(int argc, char** argv)
 {
