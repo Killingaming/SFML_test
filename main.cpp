@@ -41,7 +41,7 @@ int main(int argc, char** argv)
         oWindow.clear();
 
         //oWindow.draw(oCircle);
-        oWindow.draw(oRectangle);
+        oWindow.draw(oRectangle /*oCircle*/);
 
         oWindow.display();
 
