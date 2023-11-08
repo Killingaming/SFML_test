@@ -24,14 +24,12 @@
     <ClCompile Include="Cannon.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Slidebar.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ball.h" />
     <ClInclude Include="Brick.h" />
     <ClInclude Include="Cannon.h" />
     <ClInclude Include="GameObject.h" />
-    <ClInclude Include="Slidebar.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
