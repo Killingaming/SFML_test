@@ -3,7 +3,6 @@
 #include "Brick.h"
 #include "Ball.h"
 #include "Cannon.h"
-#include "Slidebar.h"
 
 
 int main(int argc, char** argv)
@@ -18,17 +17,14 @@ int main(int argc, char** argv)
     //Et de couleur rouge
     oRectangle.setFillColor(sf::Color::Red);
 
-    Ball oBall;
-
-    Brick obrick;
-
-    Slidebar oSlidebar;
-
-    std::vector<Brick*> oBrick;
+    //Création d'un cercle de radius 100
+    sf::CircleShape oCircle(100.f);
+    //A la position 0, 0
+    oCircle.setPosition(0.f, 0.f);
+    //Et de couleur verte
+    oCircle.setFillColor(sf::Color::Green);
 
     //GameLoop
-    //sf::Clock oClock;
-    //float fDeltaTime;
     while (oWindow.isOpen())
     {
         //EVENT
@@ -40,12 +36,12 @@ int main(int argc, char** argv)
         }
 
         //UPDATE
-        //oBall.Move(fDeltaTime);
+        
         //DRAW
         oWindow.clear();
 
         //oWindow.draw(oCircle);
-        oWindow.draw(oSlidebar);
+        oWindow.draw(oRectangle);
 
         oWindow.display();
 

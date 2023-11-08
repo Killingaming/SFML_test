@@ -33,9 +33,6 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Slidebar.h" />
   </ItemGroup>
-  <ItemGroup>
-    <Object Include="x64\Debug\main.obj" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
