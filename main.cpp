@@ -9,13 +9,16 @@ int main() {
 
     //Objects Declarations
     GameObject rect({ 350, 600 }, { 50, 100 }, sf::Color::Red);
-    GameObject circle({ 350, 50 }, 10, sf::Color::Green);
+    GameObject circle({ 350, 600 }, 10, sf::Color::Green);
 
     sf::Clock clock;
     sf::Time time;
     float deltaTime = 0;
     int deplace = 0;
-
+    float Xset = 0;
+    float Yset = 0;
+    float angle;
+    
 
     //GameLoop
     while (window.isOpen()) {
@@ -63,28 +66,38 @@ int main() {
 
             if (o_event.type == sf::Event::MouseMoved) {
                 sf::Vector2i mouse = sf::Mouse::getPosition(window);
-                float angle;
-                angle = -atan2(mouse.x - rect.getPosition().x, mouse.y - rect.getPosition().y) * 180 / 3.14159;
+                angle = -atan2(mouse.x - rect.getPosition().x, mouse.y - rect.getPosition().y);
+                angle = angle * 180 / 3.14159;
+                if (angle > -115 && angle <= 0) {
+                    angle = -115;
+                }
+                if (angle < 115 && angle >= 0) {
+                    angle = 115;
+                }
                 rect.setRotation(angle);
+                std::cout << angle << "\n";
             }
             if (o_event.type == sf::Event::MouseButtonPressed) {
-
-
-
-
-
-
-
+                sf::Vector2i mouse = sf::Mouse::getPosition(window);
+                Xset = mouse.x / 180;
+                Yset = mouse.y / 180;
+                std::cout << Xset << "\n" << Yset << "\n";
             }
             if (o_event.type == sf::Event::Closed) {
                 window.close();
             }
         }
+        if (circle.getPosition().x > window_size.x - 2 * 10 || circle.getPosition().x < 0) {
+            Xset = -Xset;
+        }
+        if (circle.getPosition().y < 0 || circle.getPosition().y > window_size.y - 2 * 10) {
+            Yset = -Yset;
+        }
 
 
         //UPDATE
-        //circle.setDirection({ circle.getDirection().x,-1 });
-        //circle.move(deltaTime);
+        circle.setDirection({ Xset,Yset });
+        circle.move(deltaTime);
 
 
         time = clock.restart();
