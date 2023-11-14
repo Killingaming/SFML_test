@@ -79,8 +79,7 @@ int main() {
             }
             if (o_event.type == sf::Event::MouseButtonPressed) {
                 sf::Vector2i mouse = sf::Mouse::getPosition(window);
-                Xset = mouse.x / 180;
-                Yset = mouse.y / 180;
+                
                 std::cout << Xset << "\n" << Yset << "\n";
             }
             if (o_event.type == sf::Event::Closed) {
