@@ -1,0 +1,5 @@
+﻿  main.cpp
+C:\Users\jkillingback\Downloads\SFML_BRICK_BREAKER_Killingaming_repo\SFML_test-lalalalalalala\main.cpp(70,37): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+C:\Users\jkillingback\Downloads\SFML_BRICK_BREAKER_Killingaming_repo\SFML_test-lalalalalalala\main.cpp(83,36): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+C:\Users\jkillingback\Downloads\SFML_BRICK_BREAKER_Killingaming_repo\SFML_test-lalalalalalala\main.cpp(84,36): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+  SFML_test.vcxproj -> C:\Users\jkillingback\Downloads\SFML_BRICK_BREAKER_Killingaming_repo\SFML_test-lalalalalalala\x64\Debug\SFML_test.exe
