@@ -9,15 +9,17 @@ int main() {
 
     //Objects Declarations
     GameObject rect({ 350, 600 }, { 50, 100 }, sf::Color::Red);
+    GameObject rect1({ 325, 100 }, { 100, 50 }, sf::Color::Cyan);
     GameObject circle({ 350, 600 }, 10, sf::Color::Green);
 
     sf::Clock clock;
     sf::Time time;
     float deltaTime = 0;
-    int deplace = 0;
     float Xset = 0;
     float Yset = 0;
     float angle;
+    float mouseX;
+    float mouseY;
     
 
     //GameLoop
@@ -66,6 +68,8 @@ int main() {
 
             if (o_event.type == sf::Event::MouseMoved) {
                 sf::Vector2i mouse = sf::Mouse::getPosition(window);
+                mouseX = mouse.x;
+                mouseY = mouse.y;
                 angle = -atan2(mouse.x - rect.getPosition().x, mouse.y - rect.getPosition().y);
                 angle = angle * 180 / 3.14159;
                 if (angle > -115 && angle <= 0) {
@@ -75,12 +79,14 @@ int main() {
                     angle = 115;
                 }
                 rect.setRotation(angle);
-                std::cout << angle << "\n";
             }
             if (o_event.type == sf::Event::MouseButtonPressed) {
-                sf::Vector2i mouse = sf::Mouse::getPosition(window);
-                
-                std::cout << Xset << "\n" << Yset << "\n";
+                Yset = ((angle / 100) + 1) * 1.25;
+                Xset = 1 - ((angle / 100) * 1.25);
+                if (angle > 0) {
+                    Yset = -((angle / 100) - 1) * 1.25;
+                    Xset = -(1 + ((angle / 100) * 1.25));
+                }
             }
             if (o_event.type == sf::Event::Closed) {
                 window.close();
@@ -95,9 +101,10 @@ int main() {
 
 
         //UPDATE
-        circle.setDirection({ Xset,Yset });
-        circle.move(deltaTime);
-
+        /*circle.setDirection({ Xset,Yset });
+        circle.move(deltaTime);*/
+        circle.setPosition({ mouseX,mouseY });
+        
 
         time = clock.restart();
         deltaTime = time.asSeconds();
@@ -105,7 +112,11 @@ int main() {
         //DRAW
         window.clear();
 
+        if (rect1.checkCollisions(circle) == true) {
+            std::cout << "touch";
+        }
 
+        rect1.draw(window);
         rect.draw(window);
         circle.draw(window);
         window.display();
