@@ -18,8 +18,8 @@ int main() {
     float Xset = 0;
     float Yset = 0;
     float angle;
-    float mouseX;
-    float mouseY;
+    float mouseX = 0;
+    float mouseY = 0;
     
 
     //GameLoop
@@ -112,8 +112,11 @@ int main() {
         //DRAW
         window.clear();
 
-        if (rect1.checkCollisions(circle) == true) {
-            std::cout << "touch";
+        if (circle.checkCollisions(rect1) == true) {
+            std::cout << "touch\n";
+        }
+        if (circle.checkCollisions(rect1) == false) {
+            std::cout << "don't touch\n";
         }
 
         rect1.draw(window);

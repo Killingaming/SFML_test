@@ -1,5 +1,19 @@
-﻿  main.cpp
-C:\Users\jkillingback\Downloads\SFML_BRICK_BREAKER_Killingaming_repo\SFML_test-lalalalalalala\main.cpp(70,37): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
-C:\Users\jkillingback\Downloads\SFML_BRICK_BREAKER_Killingaming_repo\SFML_test-lalalalalalala\main.cpp(83,36): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
-C:\Users\jkillingback\Downloads\SFML_BRICK_BREAKER_Killingaming_repo\SFML_test-lalalalalalala\main.cpp(84,36): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
-  SFML_test.vcxproj -> C:\Users\jkillingback\Downloads\SFML_BRICK_BREAKER_Killingaming_repo\SFML_test-lalalalalalala\x64\Debug\SFML_test.exe
+﻿  GameObject.cpp
+  main.cpp
+C:\Users\lsaintomer\Documents\GitHub\SFML_test\main.cpp(71,31): warning C4244: '=' : conversion de 'T' en 'float', perte possible de données
+          with
+          [
+              T=int
+          ]
+C:\Users\lsaintomer\Documents\GitHub\SFML_test\main.cpp(72,31): warning C4244: '=' : conversion de 'T' en 'float', perte possible de données
+          with
+          [
+              T=int
+          ]
+C:\Users\lsaintomer\Documents\GitHub\SFML_test\main.cpp(74,37): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+C:\Users\lsaintomer\Documents\GitHub\SFML_test\main.cpp(84,44): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+C:\Users\lsaintomer\Documents\GitHub\SFML_test\main.cpp(85,26): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+C:\Users\lsaintomer\Documents\GitHub\SFML_test\main.cpp(87,49): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+C:\Users\lsaintomer\Documents\GitHub\SFML_test\main.cpp(88,28): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+  Génération de code en cours...
+  SFML_test.vcxproj -> C:\Users\lsaintomer\Documents\GitHub\SFML_test\x64\Debug\SFML_test.exe

@@ -9,7 +9,8 @@ private:
     sf::Color color;
     sf::Shape* shape;
     float speed = 300;
-    bool collision = false;
+    bool collision ;
+    bool inCollision;
 
 public:
     //Class Constructors
@@ -34,6 +35,8 @@ public:
 
     sf::Vector2f getDirection();
 
+    sf::FloatRect getBounds();
+
     //Other Methods
     void draw(sf::RenderWindow& window);
 
@@ -46,9 +49,9 @@ public:
     /*sf::Vector2F GetPosition() { return body.getPosition(); }
     sf::Vector2f GetHalfSize() { return body.getSize()/ 2.0f; }*/
 
-    virtual void onCollisionEnter();
+    virtual void onCollisionEnter(GameObject& goOther);
 
-    virtual void onCollisionStay();
+    virtual void onCollisionStay(GameObject& goOther);
 
     virtual void onCollisionExit();
 };

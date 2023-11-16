@@ -75,6 +75,10 @@ sf::Vector2f GameObject::getDirection() {
     return direction;
 }
 
+sf::FloatRect GameObject::getBounds() {
+    return shape->getGlobalBounds();
+}
+
 /////////////////////
 /// OTHER METHODS ///
 /////////////////////
@@ -99,6 +103,7 @@ void GameObject::move(float deltaTime) {
     setPosition(newPosition);
 }
 
+
 //////////////////////////
 /// COLLISIONS METHODS ///
 //////////////////////////
@@ -106,34 +111,79 @@ void GameObject::move(float deltaTime) {
 //bool checkCollision( const sf::)
 
 bool GameObject::checkCollisions(GameObject& goOther) {
-    std::vector<sf::Vector2f> points;
-    for (int i = 0; i > shape->getPointCount(); i++) {
-        points.push_back(shape->getPoint(i));
-    }
+    sf::FloatRect shapeBounds = shape->getGlobalBounds();
+    sf::FloatRect otherBounds = goOther.getBounds();
+    sf::Vector2f p1 = { shapeBounds.left, shapeBounds.top };
+    sf::Vector2f p2 = { shapeBounds.left + shapeBounds.width, shapeBounds.top };
+    sf::Vector2f p3 = { shapeBounds.left, shapeBounds.top + shapeBounds.height };
+    sf::Vector2f p4 = { shapeBounds.left + shapeBounds.width, shapeBounds.top + shapeBounds.height };
 
-    for (auto& point : points) {
-        std::cout << "x: " << point.x << ", y: " << point.y << std::endl;
-    }
-
-    for (auto& point : points) {
-        if (point.x >= goOther.getPosition().x && point.x <= goOther.getPosition().x + goOther.getSize().x &&
-            point.y >= goOther.getPosition().y && point.y <= goOther.getPosition().y + goOther.getSize().y) {
-            collision = true;
-            break;
+    if (shapeBounds.intersects(otherBounds) || (otherBounds.contains(p1) || otherBounds.contains(p2) || otherBounds.contains(p3) || otherBounds.contains(p4))) {
+        collision = true;
+        if (!inCollision) {
+            this->onCollisionEnter(goOther);
         }
+    }
+    else {
+        collision = false;
+        if (inCollision) {
+            this->onCollisionExit();
+        }
+    }
+
+    if (collision || inCollision) {
+        //std::cout << "collision: " << collision << std::endl;
     }
 
     return collision;
 }
 
-void GameObject::onCollisionEnter() {
 
+void GameObject::onCollisionEnter(GameObject& goOther) {
+    inCollision = true;
+    std::cout << "inCollision -----> true" << std::endl;
+
+    sf::FloatRect shapeBounds = shape->getGlobalBounds();
+    sf::FloatRect otherBounds = goOther.getBounds();
+    sf::Vector2f directions = this->getDirection();
+    sf::Vector2f p1 = { shapeBounds.left, shapeBounds.top };
+    sf::Vector2f p2 = { shapeBounds.left + shapeBounds.width, shapeBounds.top };
+    sf::Vector2f p3 = { shapeBounds.left, shapeBounds.top + shapeBounds.height };
+    sf::Vector2f p4 = { shapeBounds.left + shapeBounds.width, shapeBounds.top + shapeBounds.height };
+
+    if (otherBounds.contains(p1) && otherBounds.contains(p2) && !otherBounds.contains(p3) && !otherBounds.contains(p4)) {
+        this->onCollisionStay(goOther);
+        this->setDirection({ directions.x, -directions.y });
+    }
+    else if (!otherBounds.contains(p1) && !otherBounds.contains(p2) && otherBounds.contains(p3) && otherBounds.contains(p4)) {
+        this->onCollisionStay(goOther);
+        this->setDirection({ directions.x, -directions.y });
+    }
+    else if (otherBounds.contains(p1) && !otherBounds.contains(p2) && otherBounds.contains(p3) && !otherBounds.contains(p4)) {
+        this->onCollisionStay(goOther);
+        this->setDirection({ -directions.x, directions.y });
+    }
+    else if (!otherBounds.contains(p1) && otherBounds.contains(p2) && !otherBounds.contains(p3) && otherBounds.contains(p4)) {
+        this->onCollisionStay(goOther);
+        this->setDirection({ -directions.x, directions.y });
+    }
 }
 
-void GameObject::onCollisionStay() {
+void GameObject::onCollisionStay(GameObject& goOther) {
+    sf::FloatRect shapeBounds = shape->getGlobalBounds();
+    sf::FloatRect otherBounds = goOther.getBounds();
+    sf::Vector2f directions = this->getDirection();
+    sf::Vector2f p1 = { shapeBounds.left, shapeBounds.top };
+    sf::Vector2f p2 = { shapeBounds.left + shapeBounds.width, shapeBounds.top };
+    sf::Vector2f p3 = { shapeBounds.left, shapeBounds.top + shapeBounds.height };
+    sf::Vector2f p4 = { shapeBounds.left + shapeBounds.width, shapeBounds.top + shapeBounds.height };
+    
+
+    goOther.getPosition().x;
 
 }
 
 void GameObject::onCollisionExit() {
-
+    inCollision = false;
+    std::cout << "inCollision -----> false" << std::endl;
 }
