@@ -178,16 +178,16 @@ void GameObject::onCollisionStay(GameObject& goOther) {
     sf::Vector2f p3 = { shapeBounds.left, shapeBounds.top + shapeBounds.height };
     sf::Vector2f p4 = { shapeBounds.left + shapeBounds.width, shapeBounds.top + shapeBounds.height };
     
-    if (goOther.getDirection().x < 0 && goOther.getDirection().y < 0) {
+    if (goOther.getDirection().x < goOther.getDirection().y && goOther.getDirection().x < 0) {
         
     }
-    if (goOther.getDirection().x < 0 && goOther.getDirection().y > 0) {
+    if (goOther.getDirection().x < goOther.getDirection().y && goOther.getDirection().y > 0) {
 
     }
-    if (goOther.getDirection().x > 0 && goOther.getDirection().y < 0) {
+    if (goOther.getDirection().x > goOther.getDirection().y && goOther.getDirection().x < 0) {
 
     }
-    if (goOther.getDirection().x > 0 && goOther.getDirection().y > 0) {
+    if (goOther.getDirection().x > goOther.getDirection().y && goOther.getDirection().y > 0) {
 
     }
 
