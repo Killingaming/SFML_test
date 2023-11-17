@@ -184,10 +184,10 @@ void GameObject::onCollisionStay(GameObject& goOther) {
     if (goOther.getDirection().x < goOther.getDirection().y && goOther.getDirection().y > 0) {
 
     }
-    if (goOther.getDirection().x > goOther.getDirection().y && goOther.getDirection().x < 0) {
+    if (goOther.getDirection().x > goOther.getDirection().y && goOther.getDirection().x > 0) {
 
     }
-    if (goOther.getDirection().x > goOther.getDirection().y && goOther.getDirection().y > 0) {
+    if (goOther.getDirection().x > goOther.getDirection().y && goOther.getDirection().y < 0) {
 
     }
 
