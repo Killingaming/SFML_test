@@ -174,24 +174,26 @@ void GameObject::onCollisionStay(GameObject& goOther) {
     sf::FloatRect otherBounds = goOther.getBounds();
     sf::Vector2f directions = this->getDirection();
     sf::Vector2f p1 = { shapeBounds.left, shapeBounds.top };//haut gauche 
-    sf::Vector2f p2 = { shapeBounds.left + shapeBounds.width, shapeBounds.top };//haut droitr
+    sf::Vector2f p2 = { shapeBounds.left + shapeBounds.width, shapeBounds.top };//haut droite
     sf::Vector2f p3 = { shapeBounds.left, shapeBounds.top + shapeBounds.height };//bas gauche 
     sf::Vector2f p4 = { shapeBounds.left + shapeBounds.width, shapeBounds.top + shapeBounds.height };//bas droite
     
-    if (direction.x < direction.y && direction.x < 0) {
-        
+    if (direction.x < direction.y && direction.x < 0) {//gauche 
+        //p1
+        //p3
     }
-    if (direction.x < direction.y && direction.y > 0) {
-
+    if (direction.x < direction.y && direction.y > 0) {//bas
+        //p3
+        //p4
     }
-    if (direction.x > direction.y && direction.x > 0) {
-
+    if (direction.x > direction.y && direction.x > 0) {//droite
+        //p2
+        //p4
     }
-    if (direction.x > direction.y && direction.y < 0) {
-
+    if (direction.x > direction.y && direction.y < 0) {//haut
+        //p1
+        //p2
     }
-
-    goOther.getPosition().x;
 
 }
 
